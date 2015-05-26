@@ -13,6 +13,7 @@ public enum Direction {
 	}
 	
 	public static Direction getKeyboardDirection(){
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		char letter = str.charAt(0);

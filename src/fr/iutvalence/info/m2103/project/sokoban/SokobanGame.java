@@ -54,7 +54,8 @@ public class SokobanGame {
 		}
 
 
-	private void processMove(Move move) {
+	private void processMove(Move move) 
+	{
 		Position newPosChar;
 		Position newPosBox;
 		switch(move.getDirection()){
@@ -118,12 +119,14 @@ public class SokobanGame {
 	}
 
 
-	private boolean gameIsLost() {
+	private boolean gameIsLost()
+	{
 		return false;
 	}
 
 
-	private boolean gameIsWon() {
+	private boolean gameIsWon() 
+	{
 		if(this.map.getBoxPos().equals(this.map.getRPpos()))
 		{
 			System.out.println("You win !");
@@ -134,11 +137,9 @@ public class SokobanGame {
 		
 	}
 	
-	public Map getCopyOfMap(){
+	public Map getCopyOfMap()
+	{
 		this.copyOfMap = this.map;
 		return copyOfMap;
 	}
-	
-	
-	
 }
