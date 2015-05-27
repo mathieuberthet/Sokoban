@@ -65,11 +65,7 @@ public class Affichage implements Runnable
 		    }
 		    splitPane.setTopComponent(container);
 		    fenetre.getContentPane().add(splitPane);
-		    
-
-		    
-		    
-		    
+		   
 		    // Affichage de la fenêtre
 			fenetre.setVisible(true);
 		}
