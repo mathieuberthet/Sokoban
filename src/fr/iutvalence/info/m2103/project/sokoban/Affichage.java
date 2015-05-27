@@ -1,15 +1,16 @@
 package fr.iutvalence.info.m2103.project.sokoban;
 import javax.swing.JFrame;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JSplitPane;
 
-
 public class Affichage implements Runnable
 {
-		
-	JSplitPane splitPane;
+	private JPanel container;
 	@Override
 		public void run()
 		{
@@ -27,6 +28,7 @@ public class Affichage implements Runnable
 			//Termine le processus lorsqu'on clique sur la croix rouge
 		    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		    
+		    JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		    //Création des boutons en ligne
 		    
 		    JPanel ligne1 = new JPanel();
@@ -50,17 +52,25 @@ public class Affichage implements Runnable
 		    fin.add(ligne2);
 		    fin.add(ligne3);
 		    
-		    JPanel rest = new JPanel();
+		    splitPane.setBottomComponent(fin);
 		    
-			splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,rest,fin);
-			splitPane.setDividerLocation(200);
-			splitPane.setOneTouchExpandable(true);
+		    this.container = new JPanel();
+		    this.container.setLayout(new GridLayout(10, 10));
+		    for (int i = 0; i< 20; i++)
+		    {
+		    	for (int j = 0; j< 20; j++)
+		    	{
+		    		this.container.add(new JButton());
+		    	}
+		    }
+		    splitPane.setTopComponent(container);
+		    fenetre.getContentPane().add(splitPane);
+		    
 
-		    fenetre.getContentPane().add(fin);
+		    
+		    
+		    
 		    // Affichage de la fenêtre
 			fenetre.setVisible(true);
 		}
 }
-
-
-
